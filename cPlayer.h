@@ -10,9 +10,9 @@ private:
 	Vec2 m_pos;
 	cTimer* m_timer;
 
-	BOOL m_bSkillCheck;
-	BOOL m_isSkillTimer;;
-	cTimer* m_SkillTimer;
+	BOOL m_bIsSkillOn;		// 스킬 실행 여부
+	BOOL m_bIsSkillKeyOn;		// 스킬 키 입력 가능 여부
+	cTimer* m_SkillTimer;		// 스킬 타이머 (스킬 지속시간)
 
 
 public:
