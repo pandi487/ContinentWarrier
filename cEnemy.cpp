@@ -56,12 +56,4 @@ void cEnemy::Collision(cObject* obj)
 	{
 		obj->ObjDie();
 	}
-	if (obj->GetTag() == "PlayerBullet")
-	{
-
-		HP -= cPlayerBullet::Damege;
-		printf("%d\n", HP);
-		if (HP <= 0)
-			obj->ObjDie();
-	}
 }

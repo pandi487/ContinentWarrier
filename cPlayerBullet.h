@@ -9,7 +9,7 @@ private:
 	FLOAT theta;
 
 public:
-	static int Damege;
+	int Damege;
 	cPlayerBullet(Vec2 pos, FLOAT theta);
 	virtual ~cPlayerBullet();
 	virtual void Update() override;
