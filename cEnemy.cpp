@@ -11,6 +11,7 @@ cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 	m_timer = new cTimer(3);
 	SetCollTag("OBB");
 	SetPos(m_pos);
+	rot = 0.0f;
 	HP = 3;
 }
 
@@ -28,13 +29,20 @@ void cEnemy::Update()
 	//D3DXVec2Normalize(&pos, &Vec2(m_pos - OBJ->m_player->GetPos()));
 	m_pos.y -= 20.0f * DXUTGetElapsedTime();
 	SetRect(m_pos, m_image);
-	OBJ->AddObj(new cEnemyBullet(Vec2(m_pos)));
+
+	if (m_timer->Update()) {
+		for (size_t i = 0; i < 3; i++)
+		{
+			OBJ->AddObj(new cEnemyBullet(Vec2(m_pos)));
+		}
+		
+	}
 
 }
 
 void cEnemy::Render()
 {
-	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot + 1.5, 0.f);
+	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot, 0.f);
 
 }
 
