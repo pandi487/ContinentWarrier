@@ -12,9 +12,9 @@ cPlayer::cPlayer()
 	OBJ->m_player = this;
 	m_timer = new cTimer(3); 
 	m_SkillTimer = new cTimer(3);
+	m_bIsSkillOn = FALSE;		// z키입력시에만 스킬이 실행되야 되므로 처음 초기화를 FALSE로 해둔다 (만약 TRUE로 하면 처음 시작부터 스킬 가동)
+	m_bIsSkillKeyOn = TRUE;		// 처음 게임이 시작되면 스킬 사용(z)이 가능해야 되므로 TRUE로 설정 (만약 FALSE로 하면 처음 시작부터 스킬 사용 불가능)
 	HP = 3;
-	m_bSkillCheck = TRUE;
-	m_isSkillTimer = FALSE;
 }
 
 cPlayer::~cPlayer()
@@ -49,25 +49,22 @@ void cPlayer::Update()
 		OBJ->AddObj(new cPlayerBullet(m_pos, 0.0f));
 	}
 
-	if (KEY->KeyStay('z') || KEY->KeyStay('Z'))
+	// 한번 z키를 눌렀을 시 스킬은 10초간 지속, 지속되는 도중에는 z키를 입력못하게 함
+	if (KEY->KeyStay('z') || KEY->KeyStay('Z') && m_bIsSkillKeyOn)		// 스킬 키 사용이 가능할 때
 	{
-		if (m_bSkillCheck)
-			m_isSkillTimer = TRUE;
+		m_bIsSkillOn = TRUE;		// 스킬을 실행시켜준다.
 	}
-
-	if (m_isSkillTimer) {
-		if (!m_SkillTimer->Update()) {
-			m_bSkillCheck = FALSE;
+	if (m_bIsSkillOn) {		// 스킬이 실행중 일 때
+		if (!m_SkillTimer->Update()) {		// 타이머가 10초가 되지 않을 때 (즉 10초 동안 총알이 생성됨)
+			m_bIsSkillKeyOn = FALSE;		//키 입력은 FALSE로 (10초 동안은 키 입력이 불가능해야 되기 때문)
 			OBJ->AddObj(new cPlayerBullet(m_pos, -45.0f));
 			OBJ->AddObj(new cPlayerBullet(m_pos, 45.0f));
 		}
-		else {
-			m_isSkillTimer = FALSE;
-			m_bSkillCheck = TRUE;
+		else {		// 10초가 끝났을 때
+			m_bIsSkillOn = FALSE;	//스킬 실행을 해제해준다 ( 더이상 스킬 실행이 안됨, 단 다시 m_bIsSkillOn가 TRUE가 되면 스킬 실행이 됨)
+			m_bIsSkillKeyOn = TRUE;		// 스킬 키 입력을 허용해진다. (키 입력이 가능해지니깐 위의 z키가 먹는다)
 		}
-
 	}
-
 	
 }
 	
