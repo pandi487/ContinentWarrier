@@ -40,6 +40,6 @@ void cEnemyBullet::Collision(cObject* obj)
 	if (obj->GetTag() == "Player")
 	{
 		obj->ObjDie();
-		ObjDel();
+
 	}
 }

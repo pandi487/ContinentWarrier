@@ -105,7 +105,7 @@ void cObjectManager::Update()
 		
 		
 
-		if ((*iter)->ObjDel())
+		if ((*iter)->IsDie())
 		{
 			delete *iter;
 			iter = m_objlist.erase(iter);

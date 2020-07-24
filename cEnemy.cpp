@@ -31,10 +31,9 @@ void cEnemy::Update()
 	SetRect(m_pos, m_image);
 
 	if (m_timer->Update()) {
-		for (size_t i = 0; i < 3; i++)
-		{
+		
 			OBJ->AddObj(new cEnemyBullet(Vec2(m_pos)));
-		}
+		
 		
 	}
 
@@ -54,7 +53,7 @@ void cEnemy::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Player")
 	{
-		ObjDie();
+		obj->ObjDie();
 	}
 
 }

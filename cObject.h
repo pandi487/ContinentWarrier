@@ -20,7 +20,7 @@ public:
 	Vec2 GetPos() { return pos; }
 	void SetPos(Vec2 p) { pos = p; }
 	void ObjDie() { m_Die = true; }
-	bool ObjDel() { return m_Die; }
+	bool IsDie() { return m_Die; }
 	void SetTag(string name) { Tag = name; }
 	string GetTag() { return Tag; }
 	RECT GetRect() { return rt; }

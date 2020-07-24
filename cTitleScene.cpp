@@ -87,7 +87,7 @@ void cTitleScene::Render()
 	if (m_CreditOn == true)
 	{
 		RENDER->Render(m_Title[Credit], Vec2(0, 0), Vec2(1, 1));
-		RENDER->Render(m_Title[Button], Vec2(305, 285), Vec2(1, 1));
+		RENDER->Render(m_Title[Button], Vec2(220, 170), Vec2(1, 1));
 
 	}
 	RENDER->Render(m_mouse, Vec2(KEY->GetCurPos().x, -KEY->GetCurPos().y), Vec2(1, 1));

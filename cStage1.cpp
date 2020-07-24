@@ -16,7 +16,7 @@ cStage1::~cStage1()
 void cStage1::Init()
 {
 	m_UI[ui] = IMAGE->FindImage("UI");
-	m_timer = new cTimer(0.5);
+	m_timer = new cTimer(5);
 	map = new cStage1Map;
 	
 

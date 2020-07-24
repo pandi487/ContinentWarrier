@@ -1,5 +1,7 @@
 #include "DXUT.h"
 #include "cPlayer.h"
+#include "cPlayerBullet.h"
+#include "cTimer.h"
 
 cPlayer::cPlayer()
 {
@@ -8,7 +10,11 @@ cPlayer::cPlayer()
 	m_pos = Vec2(0, 0);
 	m_CurTime = m_OldTime = timeGetTime();
 	OBJ->m_player = this;
+	m_timer = new cTimer(3); 
+	m_SkillTimer = new cTimer(3);
 	HP = 3;
+	m_bSkillCheck = TRUE;
+	m_isSkillTimer = FALSE;
 }
 
 cPlayer::~cPlayer()
@@ -38,9 +44,33 @@ void cPlayer::Update()
 	{
 		m_pos.y -= 500 * DXUTGetElapsedTime();
 	}
+	if (m_timer->Update()) {
 
+		OBJ->AddObj(new cPlayerBullet(m_pos, 0.0f));
+	}
 
+	if (KEY->KeyStay('z') || KEY->KeyStay('Z'))
+	{
+		if (m_bSkillCheck)
+			m_isSkillTimer = TRUE;
+	}
+
+	if (m_isSkillTimer) {
+		if (!m_SkillTimer->Update()) {
+			m_bSkillCheck = FALSE;
+			OBJ->AddObj(new cPlayerBullet(m_pos, -45.0f));
+			OBJ->AddObj(new cPlayerBullet(m_pos, 45.0f));
+		}
+		else {
+			m_isSkillTimer = FALSE;
+			m_bSkillCheck = TRUE;
+		}
+
+	}
+
+	
 }
+	
 
 void cPlayer::Render()
 {
@@ -55,9 +85,6 @@ void cPlayer::UIRender()
 
 void cPlayer::Collision(cObject* obj)
 {
-	if (obj->GetTag() == "Enemy")
-	{
-		obj->ObjDie();
-		ObjDel();
-	}
+
+
 }
