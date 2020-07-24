@@ -1,13 +1,14 @@
 #include "DXUT.h"
 #include "cPlayerBullet.h"
 
+int cPlayerBullet::Damege = 1;
 cPlayerBullet::cPlayerBullet(Vec2 pos, FLOAT theta)
 {
 	this->theta = theta;
 	SetTag("PlayerBullet");
 	m_image = IMAGE->FindImage("PlayerBullet");
 	SetPos(pos);
-	Damege = 1;
+
 	m_pos = pos;
 }
 
@@ -37,7 +38,7 @@ void cPlayerBullet::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Enemy")
 	{
-		obj->ObjDie();
+		//obj->ObjDie();
 		ObjDie();
 	}
 

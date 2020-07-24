@@ -3,6 +3,7 @@
 #include "cTimer.h"
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
+#include "cPlayerBullet.h"
 
 cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 {
@@ -55,5 +56,12 @@ void cEnemy::Collision(cObject* obj)
 	{
 		obj->ObjDie();
 	}
+	if (obj->GetTag() == "PlayerBullet")
+	{
 
+		HP -= cPlayerBullet::Damege;
+		printf("%d\n", HP);
+		if (HP <= 0)
+			obj->ObjDie();
+	}
 }

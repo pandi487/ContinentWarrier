@@ -8,7 +8,7 @@ private:
 	float rot;
 	FLOAT theta;
 public:
-	int Damege;
+	static int Damege;
 	cPlayerBullet(Vec2 pos, FLOAT theta);
 	virtual ~cPlayerBullet();
 	virtual void Update() override;
