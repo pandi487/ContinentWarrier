@@ -8,7 +8,8 @@ private:
 	cTimer * m_Timer;
 	int Num = 0;
 	cTexture * m_mouse;
-	RECT _1, _2, _3, _4, _5,_6;
+	Vec2 m_CreditBtnPos;
+	RECT _1, _2, _3, _4, _5,_6, _7;
 	enum Title
 	{
 		PlayOn,

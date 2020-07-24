@@ -87,7 +87,8 @@ void cTitleScene::Render()
 	if (m_CreditOn == true)
 	{
 		RENDER->Render(m_Title[Credit], Vec2(0, 0), Vec2(1, 1));
-		RENDER->Render(m_Title[Button], Vec2(220, 170), Vec2(1, 1));
+		m_CreditBtnPos = Vec2(220, 170);
+		RENDER->Render(m_Title[Button], m_CreditBtnPos, Vec2(1, 1));
 
 	}
 	RENDER->Render(m_mouse, Vec2(KEY->GetCurPos().x, -KEY->GetCurPos().y), Vec2(1, 1));
@@ -124,6 +125,10 @@ void cTitleScene::Update()
 	_4 = { long(15 - m_Title[CreditOff]->info.Width / 2),long(370 - m_Title[CreditOff]->info.Height / 2),long(15 + m_Title[CreditOff]->info.Width / 2), long(370 + m_Title[CreditOff]->info.Height / 2) };
 	_5 = { long(15 - m_Title[ExitOff]->info.Width / 2),long(420 - m_Title[ExitOff]->info.Height / 2),long(15 + m_Title[ExitOff]->info.Width / 2), long(420 + m_Title[ExitOff]->info.Height / 2) };
 	_6 = { long(320 - m_Title[Button]->info.Width / 2),long(-330 - m_Title[Button]->info.Height / 2),long(320 + m_Title[Button]->info.Width / 2), long(-330 + m_Title[Button]->info.Height / 2) };
+	_7 = {long(m_CreditBtnPos.x - m_Title[Button]->info.Width / 2),
+		long(m_CreditBtnPos.y - m_Title[Button]->info.Height / 2),
+		long(m_CreditBtnPos.x + m_Title[Button]->info.Width / 2),
+		long(m_CreditBtnPos.y + m_Title[Button]->info.Height / 2) };
 	RECT _mouse = { long(KEY->GetCurPos().x - m_mouse->info.Width / 2),long(KEY->GetCurPos().y - m_mouse->info.Height / 2),long(KEY->GetCurPos().x + m_mouse->info.Width / 2),long(KEY->GetCurPos().y + m_mouse->info.Height / 2) };
 	if (HowToOn == true)
 	{
@@ -138,8 +143,11 @@ void cTitleScene::Update()
 	}
 	else if (m_CreditOn)
 	{
-		if (KEY->GetCurPos().x<_6.right && KEY->GetCurPos().x>_6.left&&KEY->GetCurPos().y < _6.bottom&&KEY->GetCurPos().y > _6.top)
+		Vec2 m_CurPos = Vec2(KEY->GetCurPos().x, KEY->GetCurPos().y + (WINSIZEY / 2) - 100);
+		//printf("Cur Pos = x : %f y : %f\n RECT = %d : %d : %d : %d\n", m_CurPos.x, m_CurPos.y, _7.left, _7.top, _7.right, _7.bottom);
+		if (m_CurPos.x<_7.right && m_CurPos.x>_7.left&& m_CurPos.y < _7.bottom && m_CurPos.y > _7.top)
 		{
+			printf("HE");
 			if (KEY->KeyStay(VK_LBUTTON))
 			{
 			m_CreditOn = false;
