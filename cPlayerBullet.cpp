@@ -22,6 +22,11 @@ void cPlayerBullet::Update()
 	m_pos.x += cosf(D3DXToRadian(theta + 90.0f)) * 50.0f;
 
 	SetRect(m_pos, m_image);
+	SetPos(m_pos);
+	
+	if (IsMapOut()) {
+		ObjDie();
+	}
 }
 
 void cPlayerBullet::Render()
@@ -42,4 +47,13 @@ void cPlayerBullet::Collision(cObject* obj)
 		ObjDie();
 	}
 
+}
+
+BOOL cPlayerBullet::IsMapOut()
+{
+	if (m_pos.x < -610 || m_pos.x > 270
+		|| m_pos.y > WINSIZEY / 2 - 50 || m_pos.y < -WINSIZEY / 2 + 50) {
+		return TRUE;
+	}
+	return FALSE;
 }
