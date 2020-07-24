@@ -1,6 +1,5 @@
 #include "DXUT.h"
 #include "cPlayer.h"
-#include"cPlayerBullet.h"
 
 cPlayer::cPlayer()
 {
@@ -23,7 +22,6 @@ void cPlayer::Update()
 	SetRot(0);
 	SetRect(m_pos, m_image);
 
-	OBJ->AddObj(new cPlayerBullet(m_pos));
 	if (KEY->KeyStay(VK_UP) && m_pos.y < WINSIZEY / 2 - 50)
 	{
 		m_pos.y += 500 * DXUTGetElapsedTime();

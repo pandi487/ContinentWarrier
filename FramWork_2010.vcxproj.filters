@@ -179,9 +179,6 @@
     <ClCompile Include="cEnemyBullet.cpp">
       <Filter>Manager\Object\cBullet</Filter>
     </ClCompile>
-    <ClCompile Include="cPlayerBullet.cpp">
-      <Filter>Manager\Object\cBullet</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -240,9 +237,6 @@
       <Filter>Scene\Stage</Filter>
     </ClInclude>
     <ClInclude Include="cEnemyBullet.h">
-      <Filter>Manager\Object\cBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="cPlayerBullet.h">
       <Filter>Manager\Object\cBullet</Filter>
     </ClInclude>
   </ItemGroup>

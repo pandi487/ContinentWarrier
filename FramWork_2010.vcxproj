@@ -399,7 +399,6 @@
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cPlayer.cpp" />
-    <ClCompile Include="cPlayerBullet.cpp" />
     <ClCompile Include="cRenderManager.cpp" />
     <ClCompile Include="cScene.cpp" />
     <ClCompile Include="cSceneManager.cpp" />
@@ -418,7 +417,6 @@
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cPlayer.h" />
-    <ClInclude Include="cPlayerBullet.h" />
     <ClInclude Include="cRenderManager.h" />
     <ClInclude Include="cScene.h" />
     <ClInclude Include="cSceneManager.h" />
