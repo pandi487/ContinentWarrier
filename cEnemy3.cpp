@@ -1,14 +1,14 @@
 #include "DXUT.h"
-#include "cEnemy.h"
+#include "cEnemy3.h"
 #include "cTimer.h"
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
 #include "cPlayerBullet.h"
 
-cEnemy::cEnemy(Vec2 pos):m_pos(pos)
+cEnemy3::cEnemy3(Vec2 pos) :m_pos(pos)
 {
-	SetTag("Enemy");
-	m_image = IMAGE->FindImage("Enemy");
+	SetTag("Enemy3");
+	m_image = IMAGE->FindImage("Enemy3");
 	m_timer = new cTimer(1);
 	SetCollTag("OBB");
 	SetPos(m_pos);
@@ -16,11 +16,11 @@ cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 	HP = 10;
 }
 
-cEnemy::~cEnemy()
+cEnemy3::~cEnemy3()
 {
 }
 
-void cEnemy::Update()
+void cEnemy3::Update()
 {
 	//rot = atan2(OBJ->m_player->GetPos().y - m_pos.y, OBJ->m_player->GetPos().x - m_pos.x);
 	//SetRot(D3DXToDegree(rot + 1.5));
@@ -32,25 +32,26 @@ void cEnemy::Update()
 	SetRect(m_pos, m_image);
 
 	if (m_timer->Update()) {
-		
-			OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
-		
-		
+
+		OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
+		OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
+
+
 	}
 
 }
 
-void cEnemy::Render()
+void cEnemy3::Render()
 {
 	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot, 0.f);
 
 }
 
-void cEnemy::UIRender()
+void cEnemy3::UIRender()
 {
 }
 
-void cEnemy::Collision(cObject* obj)
+void cEnemy3::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Player")
 	{

@@ -18,6 +18,7 @@ cPlayerBullet::~cPlayerBullet()
 
 void cPlayerBullet::Update()
 {
+
 	m_pos.y += sinf(D3DXToRadian(theta + 90.0f)) * 50.0f;
 	m_pos.x += cosf(D3DXToRadian(theta + 90.0f)) * 50.0f;
 
@@ -49,7 +50,22 @@ void cPlayerBullet::Collision(cObject* obj)
 			obj->ObjDie();
 		ObjDie();
 	}
-
+	if (obj->GetTag() == "Enemy2")
+	{
+		cEnemy* m_Enemy = (cEnemy*)obj;
+		m_Enemy->HP -= Damege;
+		if (m_Enemy->HP <= 0)
+			obj->ObjDie();
+		ObjDie();
+	}
+	if (obj->GetTag() == "Enemy3")
+	{
+		cEnemy* m_Enemy = (cEnemy*)obj;
+		m_Enemy->HP -= Damege;
+		if (m_Enemy->HP <= 0)
+			obj->ObjDie();
+		ObjDie();
+	}
 }
 
 BOOL cPlayerBullet::IsMapOut()

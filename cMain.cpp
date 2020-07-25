@@ -49,8 +49,8 @@ void cMain::Init()
 	IMAGE->AddImage("PlayerBullet", "./image/PlayerBullet.png");
 
 	IMAGE->AddImage("Enemy", "./image/Stage1/Enemy.png");
-	IMAGE->AddImage("Enemy2", "./image/Stage1/Enemy.png");
-	IMAGE->AddImage("Enemy3", "./image/Stage1/Enemy.png");
+	IMAGE->AddImage("Enemy2", "./image/Stage1/Enemy2.png");
+	IMAGE->AddImage("Enemy3", "./image/Stage1/Enemy3.png");
 	IMAGE->AddImage("UI", "./image/Stage1/UI.png");
 
 	SCENE->ChangeScene("Title");

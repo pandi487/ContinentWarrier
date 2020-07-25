@@ -10,11 +10,11 @@ cPlayer::cPlayer()
 	m_pos = Vec2(0, 0);
 	m_CurTime = m_OldTime = timeGetTime();
 	OBJ->m_player = this;
-	m_timer = new cTimer(3); 
+	m_timer = new cTimer(0.3); 
 	m_SkillTimer = new cTimer(3);
 	m_bIsSkillOn = FALSE;		// z키입력시에만 스킬이 실행되야 되므로 처음 초기화를 FALSE로 해둔다 (만약 TRUE로 하면 처음 시작부터 스킬 가동)
 	m_bIsSkillKeyOn = TRUE;		// 처음 게임이 시작되면 스킬 사용(z)이 가능해야 되므로 TRUE로 설정 (만약 FALSE로 하면 처음 시작부터 스킬 사용 불가능)
-	HP = 3;
+	HP = 20;
 }
 
 cPlayer::~cPlayer()

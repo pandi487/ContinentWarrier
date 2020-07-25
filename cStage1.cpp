@@ -1,9 +1,11 @@
 #include "DXUT.h"
 #include "cStage1.h"
-#include"cStage1Map.h"
-#include"cTimer.h"
-#include"cPlayer.h"
-#include"cEnemy.h"
+#include "cStage1Map.h"
+#include "cTimer.h"
+#include "cPlayer.h"
+#include "cEnemy.h"
+#include "cEnemy2.h"
+#include "cEnemy3.h"
 
 cStage1::cStage1()
 {
@@ -45,6 +47,8 @@ void cStage1::Update()
 	if (m_timer->Update())
 	{
 		OBJ->AddObj(new cEnemy(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
+		OBJ->AddObj(new cEnemy2(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
+		OBJ->AddObj(new cEnemy3(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
 
 	}
 	map->Update(100);

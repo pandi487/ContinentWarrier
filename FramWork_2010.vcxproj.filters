@@ -182,6 +182,12 @@
     <ClCompile Include="cPlayerBullet.cpp">
       <Filter>Manager\Object\cBullet</Filter>
     </ClCompile>
+    <ClCompile Include="cEnemy2.cpp">
+      <Filter>Manager\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="cEnemy3.cpp">
+      <Filter>Manager\Object\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -244,6 +250,12 @@
     </ClInclude>
     <ClInclude Include="cPlayerBullet.h">
       <Filter>Manager\Object\cBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="cEnemy2.h">
+      <Filter>Manager\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="cEnemy3.h">
+      <Filter>Manager\Object\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
