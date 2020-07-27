@@ -20,8 +20,8 @@ cEnemyBullet::~cEnemyBullet()
 
 void cEnemyBullet::Update()
 {
-	m_pos.y -= sinf(D3DXToRadian(theta + 90.0f)) * 50.0f;
-	m_pos.x -= cosf(D3DXToRadian(theta + 90.0f)) * 50.0f;
+	m_pos.y -= sinf(D3DXToRadian(theta + 90.0f)) * 10.0f;
+	m_pos.x -= cosf(D3DXToRadian(theta + 90.0f)) * 10.0f;
 
 	//m_pos.y -= 10.0f;
 	SetRect(m_pos, m_image);

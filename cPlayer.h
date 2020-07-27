@@ -9,7 +9,7 @@ private:
 	cTexture* m_image;
 	Vec2 m_pos;
 	cTimer* m_timer;
-
+	cTimer* z_timer;
 	BOOL m_bIsSkillOn;		// 스킬 실행 여부
 	BOOL m_bIsSkillKeyOn;		// 스킬 키 입력 가능 여부
 	cTimer* m_SkillTimer;		// 스킬 타이머 (스킬 지속시간)

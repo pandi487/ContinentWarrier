@@ -6,6 +6,7 @@
 #include "cEnemy.h"
 #include "cEnemy2.h"
 #include "cEnemy3.h"
+#include <time.h>
 
 cStage1::cStage1()
 {
@@ -21,7 +22,7 @@ void cStage1::Init()
 	m_timer = new cTimer(5);
 	map = new cStage1Map;
 	
-
+	srand((unsigned int)time(NULL));
 	OBJ->AddObj(new cPlayer());
 }
 
@@ -44,12 +45,20 @@ void cStage1::Release()
 
 void cStage1::Update()
 {
+	
 	if (m_timer->Update())
 	{
-		OBJ->AddObj(new cEnemy(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
-		OBJ->AddObj(new cEnemy2(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
-		OBJ->AddObj(new cEnemy3(Vec2(rand() % WINSIZEX - WINSIZEX / 2, WINSIZEY / 2)));
-
+		switch (rand() % 3) {
+		case 0:
+			OBJ->AddObj(new cEnemy(Vec2((((rand() % 2) ? 1 : -1) * 500), WINSIZEY / 2)));
+			break;
+		case 1:
+			OBJ->AddObj(new cEnemy2(Vec2((((rand() % 2) ? 1 : -1) * 500), WINSIZEY / 2)));
+			break;
+		case 2:
+			OBJ->AddObj(new cEnemy3(Vec2((((rand() % 2) ? 1 : -1) * 450), WINSIZEY / 2)));
+			break;
+		}
 	}
 	map->Update(100);
 }

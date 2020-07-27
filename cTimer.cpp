@@ -8,11 +8,11 @@ cTimer::cTimer(FLOAT Del)
 
 BOOL cTimer::Update()
 {
-		m_Start +=DXUTGetElapsedTime();
-		if (m_Start > m_Del)
-		{
-			m_Start = 0.f;
-			return TRUE;
-		}
-		return FALSE;
+	m_Start += DXUTGetElapsedTime();
+	if (m_Start > m_Del)
+	{
+		m_Start = 0.f;
+		return TRUE;
+	}
+	return FALSE;
 }

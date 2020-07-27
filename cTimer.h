@@ -6,8 +6,8 @@ public:
 	FLOAT m_Del = 0;
 public:
 	cTimer(FLOAT Del);
-
 	~cTimer() {};
+
 	BOOL Update();
 };
 

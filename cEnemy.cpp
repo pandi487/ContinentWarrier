@@ -54,6 +54,8 @@ void cEnemy::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Player")
 	{
-		obj->ObjDie();
+		cPlayer* m_Player = (cPlayer*)obj;
+		m_Player->HP -= 1;
+		ObjDie();
 	}
 }

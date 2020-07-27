@@ -19,8 +19,8 @@ cPlayerBullet::~cPlayerBullet()
 void cPlayerBullet::Update()
 {
 
-	m_pos.y += sinf(D3DXToRadian(theta + 90.0f)) * 50.0f;
-	m_pos.x += cosf(D3DXToRadian(theta + 90.0f)) * 50.0f;
+	m_pos.y += sinf(D3DXToRadian(theta + 90.0f)) * 20.0f;
+	m_pos.x += cosf(D3DXToRadian(theta + 90.0f)) * 20.0f;
 
 	SetRect(m_pos, m_image);
 	SetPos(m_pos);
@@ -70,8 +70,8 @@ void cPlayerBullet::Collision(cObject* obj)
 
 BOOL cPlayerBullet::IsMapOut()
 {
-	if (m_pos.x < -610 || m_pos.x > 270
-		|| m_pos.y > WINSIZEY / 2 - 50 || m_pos.y < -WINSIZEY / 2 + 50) {
+	if (m_pos.x < -800 || m_pos.x > 290
+		|| m_pos.y > WINSIZEY / 2 - 10 || m_pos.y < -WINSIZEY / 2 + 10) {
 		return TRUE;
 	}
 	return FALSE;
