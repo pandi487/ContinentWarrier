@@ -5,6 +5,7 @@ class cEnemy : public cObject
 {
 private:
 	cTexture* m_image;
+	cMultiTexture* m_multimage;
 	Vec2 m_pos;
 	Vec2 pos;
 	float a = 0;

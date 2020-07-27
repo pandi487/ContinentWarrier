@@ -19,8 +19,8 @@ void cTitleScene::Init()
 	m_Title[BG] = IMAGE->FindImage("Title");
 	m_Title[PlayOn] = IMAGE->FindImage("PlayOn");
 	m_Title[PlayOff] = IMAGE->FindImage("PlayOff");
-	m_Title[OptionOn] = IMAGE->FindImage("OptionOn");
-	m_Title[OptionOff] = IMAGE->FindImage("OptionOff");
+	//m_Title[OptionOn] = IMAGE->FindImage("OptionOn");
+	//m_Title[OptionOff] = IMAGE->FindImage("OptionOff");
 	m_Title[ExitOn] = IMAGE->FindImage("ExitOn");
 	m_Title[ExitOff] = IMAGE->FindImage("ExitOff");
 	m_Title[HowOff] = IMAGE->FindImage("HowOff");
@@ -52,6 +52,7 @@ void cTitleScene::Render()
 	{
 		RENDER->Render(m_Title[HowOff], Vec2(15, -240), Vec2(1, 1));
 	}
+	/*
 	if (Num == 3)
 	{
 		RENDER->Render(m_Title[OptionOn], Vec2(17, -300), Vec2(1, 1));
@@ -60,21 +61,22 @@ void cTitleScene::Render()
 	{
 		RENDER->Render(m_Title[OptionOff], Vec2(15, -300), Vec2(1, 1));
 	}
+	*/
 	if (Num == 4)
 	{
-		RENDER->Render(m_Title[CreditOn], Vec2(15, -360), Vec2(1, 1));
+		RENDER->Render(m_Title[CreditOn], Vec2(17, -300), Vec2(1, 1));
 	}
 	else
 	{
-		RENDER->Render(m_Title[CreditOff], Vec2(15, -360), Vec2(1, 1));
+		RENDER->Render(m_Title[CreditOff], Vec2(15, -300), Vec2(1, 1));
 	}
 	if (Num == 5)
 	{
-		RENDER->Render(m_Title[ExitOn], Vec2(14, -420), Vec2(1, 1));
+		RENDER->Render(m_Title[ExitOn], Vec2(17, -360), Vec2(1, 1));
 	}
 	else
 	{
-		RENDER->Render(m_Title[ExitOff], Vec2(15, -420), Vec2(1, 1));
+		RENDER->Render(m_Title[ExitOff], Vec2(15, -360), Vec2(1, 1));
 	}
 
 	if (HowToOn == true)
@@ -121,9 +123,9 @@ void cTitleScene::Update()
 	RECT rt= {0,0,0,0};
 	_1 = { long(15 - m_Title[PlayOff]->info.Width / 2),long(210 - m_Title[PlayOff]->info.Height / 2),long(15 + m_Title[PlayOff]->info.Width / 2), long(210 + m_Title[PlayOff]->info.Height / 2)-20 };
 	_2 = { long(15 - m_Title[HowOff]->info.Width / 2),long(280 - m_Title[HowOff]->info.Height / 2),long(15 + m_Title[HowOff]->info.Width / 2), long(280 + m_Title[HowOff]->info.Height / 2)-25 };
-	_3 = { long(15 - m_Title[OptionOff]->info.Width / 2),long(320 - m_Title[OptionOff]->info.Height / 2),long(15 + m_Title[OptionOff]->info.Width / 2), long(320 + m_Title[OptionOff]->info.Height / 2) };
-	_4 = { long(15 - m_Title[CreditOff]->info.Width / 2),long(370 - m_Title[CreditOff]->info.Height / 2),long(15 + m_Title[CreditOff]->info.Width / 2), long(370 + m_Title[CreditOff]->info.Height / 2) };
-	_5 = { long(15 - m_Title[ExitOff]->info.Width / 2),long(420 - m_Title[ExitOff]->info.Height / 2),long(15 + m_Title[ExitOff]->info.Width / 2), long(420 + m_Title[ExitOff]->info.Height / 2) };
+	//_3 = { long(15 - m_Title[OptionOff]->info.Width / 2),long(320 - m_Title[OptionOff]->info.Height / 2),long(15 + m_Title[OptionOff]->info.Width / 2), long(320 + m_Title[OptionOff]->info.Height / 2) };
+	_4 = { long(15 - m_Title[CreditOff]->info.Width / 2),long(320 - m_Title[CreditOff]->info.Height / 2),long(15 + m_Title[CreditOff]->info.Width / 2), long(320 + m_Title[CreditOff]->info.Height / 2) };
+	_5 = { long(15 - m_Title[ExitOff]->info.Width / 2),long(380 - m_Title[ExitOff]->info.Height / 2),long(15 + m_Title[ExitOff]->info.Width / 2), long(380+ m_Title[ExitOff]->info.Height / 2) };
 	_6 = { long(320 - m_Title[Button]->info.Width / 2),long(-330 - m_Title[Button]->info.Height / 2),long(320 + m_Title[Button]->info.Width / 2), long(-330 + m_Title[Button]->info.Height / 2) };
 	_7 = {long(m_CreditBtnPos.x - m_Title[Button]->info.Width / 2),
 		long(m_CreditBtnPos.y - m_Title[Button]->info.Height / 2),

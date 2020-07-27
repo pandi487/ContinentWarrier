@@ -20,7 +20,7 @@ public:
 	virtual ~cPlayer();
 	
 	int speed = 0;
-	int HP;
+	static int HP;
 	// cObject을(를) 통해 상속됨
 	virtual void Update() override;
 	virtual void Render() override;

@@ -4,11 +4,13 @@
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
 #include "cPlayerBullet.h"
+#include "cMultiTexture.h"
 
 cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 {
 	SetTag("Enemy");
 	m_image = IMAGE->FindImage("Enemy");
+	m_multimage = IMAGE->FindMultiTexture("Effect");
 	m_timer = new cTimer(1);
 	SetCollTag("OBB");
 	SetPos(m_pos);
@@ -43,7 +45,10 @@ void cEnemy::Update()
 void cEnemy::Render()
 {
 	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot, 0.f);
-
+	if (cPlayer::HP <= 0)
+	{
+		m_multimage->FindImage("Effect");
+	}
 }
 
 void cEnemy::UIRender()

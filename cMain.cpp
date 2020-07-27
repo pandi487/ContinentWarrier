@@ -36,8 +36,8 @@ void cMain::Init()
 	IMAGE->AddImage("CreditOn", "./image/Title/CreditOn.png");
 	IMAGE->AddImage("CreditOff", "./image/Title/CreditOff.png");
 
-	IMAGE->AddImage("OptionOn","./image/Title/OptionOn.png");
-	IMAGE->AddImage("OptionOff", "./image/Title/OptionOff.png");
+	//IMAGE->AddImage("OptionOn","./image/Title/OptionOn.png");
+	//IMAGE->AddImage("OptionOff", "./image/Title/OptionOff.png");
 
 	IMAGE->AddImage("ExitOn","./image/Title/ExitOn.png");
 	IMAGE->AddImage("ExitOff", "./image/Title/ExitOff.png");
@@ -56,7 +56,15 @@ void cMain::Init()
 	SCENE->ChangeScene("Title");
 	
 	IMAGE->AddImage("EnemyBullet", "./image/EnemyBullet.png");
-	
+
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+
 }
 
 void cMain::Render()
