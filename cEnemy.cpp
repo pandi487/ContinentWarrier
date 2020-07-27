@@ -10,8 +10,8 @@ cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 {
 	SetTag("Enemy");
 	m_image = IMAGE->FindImage("Enemy");
-	m_multimage = IMAGE->FindMultiTexture("Effect");
 	m_timer = new cTimer(1);
+	
 	SetCollTag("OBB");
 	SetPos(m_pos);
 	rot = 0.0f;
@@ -41,14 +41,19 @@ void cEnemy::Update()
 	}
 
 }
-
+//int i = 0;
 void cEnemy::Render()
 {
 	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot, 0.f);
-	if (cPlayer::HP <= 0)
-	{
-		m_multimage->FindImage("Effect");
-	}
+	//if (cPlayer::HP <= 0)
+	//{
+	//	if (i < 6)
+	//		i++;
+	//	//printf("%d\n", i);
+
+	//	//cTexture* m_image = IMAGE->FindMultiTexture("Effect")->FindImage(i);
+	//	//RENDER->Render(m_image, m_pos, Vec2(1.0f, 1.0f));
+	//}
 }
 
 void cEnemy::UIRender()

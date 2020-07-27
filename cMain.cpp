@@ -57,13 +57,7 @@ void cMain::Init()
 	
 	IMAGE->AddImage("EnemyBullet", "./image/EnemyBullet.png");
 
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
-	IMAGE->AddImage("Effect", "./image/Effect/Effect1.png");
+	IMAGE->AddImage("Effect", "./image/Effect/Effect.png", 7);
 
 }
 
