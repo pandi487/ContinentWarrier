@@ -1,0 +1,4 @@
+C:\Users\eogus\OneDrive\바탕 화면\FramWork\x64\Debug\FramWork.exe
+C:\Users\eogus\OneDrive\바탕 화면\FramWork\x64\Debug\FramWork.pdb
+C:\Users\eogus\source\repos\FramWork\x64\Debug\FramWork.exe
+C:\Users\eogus\source\repos\FramWork\x64\Debug\FramWork.pdb
