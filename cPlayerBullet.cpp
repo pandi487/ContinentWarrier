@@ -71,7 +71,7 @@ void cPlayerBullet::Collision(cObject* obj)
 
 BOOL cPlayerBullet::IsMapOut()
 {
-	if (m_pos.x < -800 || m_pos.x > 290
+	if (m_pos.x < -800 || m_pos.x > 800
 		|| m_pos.y > WINSIZEY / 2 - 10 || m_pos.y < -WINSIZEY / 2 + 10) {
 		return TRUE;
 	}

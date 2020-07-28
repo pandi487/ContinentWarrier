@@ -19,7 +19,7 @@ cStage1::~cStage1()
 void cStage1::Init()
 {
 //	m_UI[ui] = IMAGE->FindImage("UI");
-	m_timer = new cTimer(5);
+	m_timer = new cTimer(1);
 	map = new cStage1Map;
 	
 	srand((unsigned int)time(NULL));
@@ -42,21 +42,34 @@ void cStage1::Release()
 {
 	SAFE_DELETE(map);
 }
-
+int RandomPosition() {
+	if (rand() % 2) {
+		return 1;
+	}
+	else {
+		return -1;
+	}
+}
 void cStage1::Update()
 {
 	
 	if (m_timer->Update())
 	{
+		
 		switch (rand() % 3) {
 		case 0:
-			OBJ->AddObj(new cEnemy(Vec2((((rand() % 2) ? 1 : -1) * 500), WINSIZEY / 2)));
+			OBJ->AddObj(new cEnemy(Vec2((RandomPosition() * (rand() % 800)), WINSIZEY / 2)));
+
+			
+
 			break;
 		case 1:
-			OBJ->AddObj(new cEnemy2(Vec2((((rand() % 2) ? 1 : -1) * 500), WINSIZEY / 2)));
+			
+			OBJ->AddObj(new cEnemy2(Vec2((RandomPosition() * (rand() % 800)), WINSIZEY / 2)));
+			//printf("x값의 범위 : %d\n", (RandomPosition() * (rand() % 800)));
 			break;
 		case 2:
-			OBJ->AddObj(new cEnemy3(Vec2((((rand() % 2) ? 1 : -1) * 450), WINSIZEY / 2)));
+			OBJ->AddObj(new cEnemy3(Vec2((RandomPosition() * (rand() % 800)), WINSIZEY / 2)));
 			break;
 		}
 	}
