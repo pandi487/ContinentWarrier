@@ -77,15 +77,26 @@ void cPlayer::Update()
 	
 }
 	
-
+float field = 1.0f;
+float y = -380.0f;
 void cPlayer::Render()
 {
 	RENDER->Render(m_image, m_pos, Vec2(0.8, 0.8));
 
+
+	RENDER->Render(IMAGE->FindImage("SkillOn"), Vec2(745, -380), Vec2(1.0f, 1.0f));
+	RENDER->Render(IMAGE->FindImage("SkillOff"), Vec2(745, y), Vec2(1.0f, field));
+	field -= 0.01f;
+	y -= 0.8f;
 }
 
 void cPlayer::UIRender()
 {
+	//char m_hp[256];
+	//sprintf(m_hp, "%d", HP);
+	//IMAGE->TextDraw(str, Vec2(-0, -0), str.size(), true, D3DXCOLOR(0,0,0,1.0f));
+
+
 }
 
 

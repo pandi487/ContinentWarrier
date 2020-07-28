@@ -57,7 +57,6 @@ void cMain::Init()
 	
 	IMAGE->AddImage("EnemyBullet", "./image/EnemyBullet.png");
 
-
 	IMAGE->AddImage("Effect1", "./image/Effect/Effect1.png");
 	IMAGE->AddImage("Effect2", "./image/Effect/Effect2.png");
 	IMAGE->AddImage("Effect3", "./image/Effect/Effect3.png");
@@ -66,6 +65,8 @@ void cMain::Init()
 	IMAGE->AddImage("Effect6", "./image/Effect/Effect6.png");
 	IMAGE->AddImage("Effect7", "./image/Effect/Effect7.png");
 
+	IMAGE->AddImage("SkillOff", "./image/UI/skillColl.png");
+	IMAGE->AddImage("SkillOn", "./image/UI/skillUI.png");
 }
 
 void cMain::Render()

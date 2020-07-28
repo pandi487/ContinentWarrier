@@ -18,7 +18,7 @@ cStage1::~cStage1()
 
 void cStage1::Init()
 {
-	m_UI[ui] = IMAGE->FindImage("UI");
+//	m_UI[ui] = IMAGE->FindImage("UI");
 	m_timer = new cTimer(5);
 	map = new cStage1Map;
 	
@@ -65,6 +65,6 @@ void cStage1::Update()
 
 void cStage1::IUIRender()
 {
-	RENDER->Render(m_UI[ui], Vec2(0, 0), Vec2(1, 1));
+//	RENDER->Render(m_UI[ui], Vec2(0, 0), Vec2(1, 1));
 }
 
