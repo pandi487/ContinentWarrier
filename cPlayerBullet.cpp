@@ -44,8 +44,9 @@ void cPlayerBullet::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Enemy")
 	{
+		
 		cEnemy* m_Enemy = (cEnemy*)obj;
-		m_Enemy->HP -= Damege;
+		m_Enemy->HP -= Damege; 
 		if (m_Enemy->HP <= 0)
 			obj->ObjDie();
 		ObjDie();

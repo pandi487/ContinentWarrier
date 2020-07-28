@@ -389,6 +389,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cEffect.cpp" />
     <ClCompile Include="cEnemy.cpp" />
     <ClCompile Include="cEnemy2.cpp" />
     <ClCompile Include="cEnemy3.cpp" />
@@ -410,6 +411,7 @@
     <ClCompile Include="cTimer.cpp" />
     <ClCompile Include="cTitleScene.cpp" />
     <ClCompile Include="singleton.cpp" />
+    <ClInclude Include="cEffect.h" />
     <ClInclude Include="cEnemy.h" />
     <ClInclude Include="cEnemy2.h" />
     <ClInclude Include="cEnemy3.h" />

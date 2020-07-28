@@ -60,6 +60,9 @@
     <Filter Include="Manager\Object\cBullet">
       <UniqueIdentifier>{f03fe2b6-f240-479e-bf6e-fc8f8e3d5ad6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{442c70cd-d30a-4aaa-869f-3c10f15809f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -188,6 +191,9 @@
     <ClCompile Include="cEnemy3.cpp">
       <Filter>Manager\Object\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="cEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -256,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="cEnemy3.h">
       <Filter>Manager\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="cEffect.h">
+      <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

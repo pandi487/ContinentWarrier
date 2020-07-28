@@ -4,7 +4,7 @@
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
 #include "cPlayerBullet.h"
-#include "cMultiTexture.h"
+#include "cEffect.h"
 
 cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 {
@@ -36,24 +36,18 @@ void cEnemy::Update()
 	if (m_timer->Update()) {
 		
 			OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
+	}
+	if (HP <= 0) {
 		
-		
+		OBJ->AddObj(new cEffect(m_pos));
 	}
 
 }
-//int i = 0;
+
 void cEnemy::Render()
 {
 	RENDER->Render(m_image, m_pos, Vec2(1, 1), rot, 0.f);
-	//if (cPlayer::HP <= 0)
-	//{
-	//	if (i < 6)
-	//		i++;
-	//	//printf("%d\n", i);
 
-	//	//cTexture* m_image = IMAGE->FindMultiTexture("Effect")->FindImage(i);
-	//	//RENDER->Render(m_image, m_pos, Vec2(1.0f, 1.0f));
-	//}
 }
 
 void cEnemy::UIRender()
@@ -66,6 +60,7 @@ void cEnemy::Collision(cObject* obj)
 	{
 		cPlayer* m_Player = (cPlayer*)obj;
 		m_Player->HP -= 1;
+		
 		ObjDie();
 	}
 }

@@ -4,6 +4,7 @@
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
 #include "cPlayerBullet.h"
+#include "cEffect.h"
 
 cEnemy3::cEnemy3(Vec2 pos) :m_pos(pos)
 {
@@ -33,12 +34,13 @@ void cEnemy3::Update()
 
 	if (m_timer->Update()) {
 
-		OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
-		OBJ->AddObj(new cEnemyBullet(m_pos, 0.0f));
-
-
+		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x - 10, m_pos.y), 0.0f));
+		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x + 10, m_pos.y), 0.0f));
 	}
+	if (HP <= 0) {
 
+		OBJ->AddObj(new cEffect(m_pos));
+	}
 }
 
 void cEnemy3::Render()

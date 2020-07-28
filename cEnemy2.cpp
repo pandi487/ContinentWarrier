@@ -4,13 +4,13 @@
 #include "cPlayer.h"
 #include "cEnemyBullet.h"
 #include "cPlayerBullet.h"
+#include "cEffect.h"
 
 cEnemy2::cEnemy2(Vec2 pos) :m_pos(pos)
 {
 	SetTag("Enemy2");
 	m_image = IMAGE->FindImage("Enemy2");
 	m_timer = new cTimer(1);
-
 	SetCollTag("OBB");
 	SetPos(m_pos);
 	rot = 0.0f;
@@ -35,6 +35,10 @@ void cEnemy2::Update()
 		OBJ->AddObj(new cEnemyBullet(m_pos, -45.0f));
 		OBJ->AddObj(new cEnemyBullet(m_pos, 45.0f));
 
+	}
+	if (HP <= 0) {
+
+		OBJ->AddObj(new cEffect(m_pos));
 	}
 
 }
