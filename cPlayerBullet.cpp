@@ -1,6 +1,7 @@
 #include "DXUT.h"
 #include "cPlayerBullet.h"
 #include "cEnemy.h"
+#include "cScore.h"
 
 cPlayerBullet::cPlayerBullet(Vec2 pos, FLOAT theta)
 {
@@ -47,24 +48,30 @@ void cPlayerBullet::Collision(cObject* obj)
 		
 		cEnemy* m_Enemy = (cEnemy*)obj;
 		m_Enemy->HP -= Damege; 
-		if (m_Enemy->HP <= 0)
+		if (m_Enemy->HP <= 0) {
 			obj->ObjDie();
+			SCORE->Score += 100;
+		}
 		ObjDie();
 	}
 	if (obj->GetTag() == "Enemy2")
 	{
 		cEnemy* m_Enemy = (cEnemy*)obj;
 		m_Enemy->HP -= Damege;
-		if (m_Enemy->HP <= 0)
+		if (m_Enemy->HP <= 0) {
 			obj->ObjDie();
+			SCORE->Score += 100;
+		}
 		ObjDie();
 	}
 	if (obj->GetTag() == "Enemy3")
 	{
 		cEnemy* m_Enemy = (cEnemy*)obj;
 		m_Enemy->HP -= Damege;
-		if (m_Enemy->HP <= 0)
+		if (m_Enemy->HP <= 0){
 			obj->ObjDie();
+			SCORE->Score += 100;
+		}
 		ObjDie();
 	}
 }

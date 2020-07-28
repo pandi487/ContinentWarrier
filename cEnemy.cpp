@@ -16,6 +16,7 @@ cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
+
 }
 
 cEnemy::~cEnemy()

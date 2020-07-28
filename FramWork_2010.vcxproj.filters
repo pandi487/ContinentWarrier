@@ -194,6 +194,7 @@
     <ClCompile Include="cEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="cScore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -266,6 +267,7 @@
     <ClInclude Include="cEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
+    <ClInclude Include="cScore.h" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

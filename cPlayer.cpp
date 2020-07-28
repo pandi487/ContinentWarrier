@@ -1,6 +1,7 @@
 #include "DXUT.h"
 #include "cPlayer.h"
 #include "cPlayerBullet.h"
+#include "cScore.h"
 #include "cTimer.h"
 
 INT cPlayer::HP = 100;
@@ -28,9 +29,13 @@ cPlayer::~cPlayer()
 void cPlayer::Update()
 {
 	if (HP <= 0) {
-		SCENE->ChangeScene("Title");
+		SCENE->ChangeScene("Title");//game over로 교체
+		
 	}
-
+	if (SCORE->Score >= 100)
+	{
+		SCENE->ChangeScene("Title");//game clear로 교체
+	}
 	m_CurTime = timeGetTime();
 	SetPos(m_pos);
 	SetRot(0);
@@ -115,6 +120,6 @@ void cPlayer::UIRender()
 
 void cPlayer::Collision(cObject* obj)
 {
-
+	//Enemy 랑 충돌 hp 빼기
 
 }

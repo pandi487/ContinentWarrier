@@ -406,6 +406,7 @@
     <ClCompile Include="cRenderManager.cpp" />
     <ClCompile Include="cScene.cpp" />
     <ClCompile Include="cSceneManager.cpp" />
+    <ClCompile Include="cScore.cpp" />
     <ClCompile Include="cStage1.cpp" />
     <ClCompile Include="cStage1Map.cpp" />
     <ClCompile Include="cTimer.cpp" />
@@ -428,6 +429,7 @@
     <ClInclude Include="cRenderManager.h" />
     <ClInclude Include="cScene.h" />
     <ClInclude Include="cSceneManager.h" />
+    <ClInclude Include="cScore.h" />
     <ClInclude Include="cStage1.h" />
     <ClInclude Include="cStage1Map.h" />
     <ClInclude Include="cTimer.h" />

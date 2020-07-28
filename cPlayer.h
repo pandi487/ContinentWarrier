@@ -17,10 +17,10 @@ private:
 	float y = -380.0f;
 	cTimer* s_timer;
 	BOOL IsShow;
+	
 public:
 	cPlayer();
 	virtual ~cPlayer();
-	
 	int speed = 0;
 	static int HP;
 	// cObject을(를) 통해 상속됨
