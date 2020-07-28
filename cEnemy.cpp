@@ -63,4 +63,10 @@ void cEnemy::Collision(cObject* obj)
 		
 		ObjDie();
 	}
+
+	if (obj->GetTag() == "Enemy" || obj->GetTag() == "Enemy2" || obj->GetTag() == "Enemy3")
+	{
+
+		obj->ObjDie();
+	}
 }

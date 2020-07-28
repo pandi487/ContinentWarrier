@@ -10,7 +10,8 @@ private:
 		ui,
 	};
 	cTexture* m_UI[10];
-	cTimer* m_timer;
+	cTimer* m1_timer;
+
 	cStage1Map* map;
 	cPlayer* m_Player;
 public:
