@@ -16,6 +16,7 @@ cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
+	Damege = 1;
 
 }
 
@@ -60,9 +61,8 @@ void cEnemy::Collision(cObject* obj)
 	if (obj->GetTag() == "Player")
 	{
 		cPlayer* m_Player = (cPlayer*)obj;
-		m_Player->HP -= 1;
+		m_Player->HP -= Damege;
 		
-		ObjDie();
 	}
 
 	if (obj->GetTag() == "Enemy" || obj->GetTag() == "Enemy2" || obj->GetTag() == "Enemy3")

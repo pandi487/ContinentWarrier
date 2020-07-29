@@ -12,6 +12,7 @@ private:
 	cTimer* m_timer;
 public:
 	int HP;
+	int Damege;
 	cEnemy3(Vec2 pos);
 	virtual ~cEnemy3();
 	virtual void Update() override;

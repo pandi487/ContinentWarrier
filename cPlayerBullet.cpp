@@ -50,7 +50,7 @@ void cPlayerBullet::Collision(cObject* obj)
 		m_Enemy->HP -= Damege; 
 		if (m_Enemy->HP <= 0) {
 			obj->ObjDie();
-			SCORE->Score += 100;
+			SCORE->Score += 1;
 		}
 		ObjDie();
 	}
@@ -60,7 +60,7 @@ void cPlayerBullet::Collision(cObject* obj)
 		m_Enemy->HP -= Damege;
 		if (m_Enemy->HP <= 0) {
 			obj->ObjDie();
-			SCORE->Score += 100;
+			SCORE->Score += 1;
 		}
 		ObjDie();
 	}
@@ -70,7 +70,7 @@ void cPlayerBullet::Collision(cObject* obj)
 		m_Enemy->HP -= Damege;
 		if (m_Enemy->HP <= 0){
 			obj->ObjDie();
-			SCORE->Score += 100;
+			SCORE->Score += 1;
 		}
 		ObjDie();
 	}

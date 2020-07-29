@@ -63,6 +63,9 @@
     <Filter Include="Effect">
       <UniqueIdentifier>{442c70cd-d30a-4aaa-869f-3c10f15809f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Score">
+      <UniqueIdentifier>{49bf2d64-aadf-4694-83d5-d98ac9abd56c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -194,7 +197,9 @@
     <ClCompile Include="cEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="cScore.cpp" />
+    <ClCompile Include="cScore.cpp">
+      <Filter>Score</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -267,7 +272,9 @@
     <ClInclude Include="cEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="cScore.h" />
+    <ClInclude Include="cScore.h">
+      <Filter>Score</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

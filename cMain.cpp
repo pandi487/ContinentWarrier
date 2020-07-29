@@ -67,6 +67,9 @@ void cMain::Init()
 
 	IMAGE->AddImage("SkillOff", "./image/UI/skillColl.png");
 	IMAGE->AddImage("SkillOn", "./image/UI/skillUI.png");
+
+	IMAGE->AddImage("SkillOff2", "./image/UI/skillColl2.png");
+	IMAGE->AddImage("HP", "./image/UI/HP.png");
 }
 
 void cMain::Render()

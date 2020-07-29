@@ -14,10 +14,19 @@ private:
 	BOOL m_bIsSkillKeyOn;		// 스킬 키 입력 가능 여부
 	cTimer* m_SkillTimer;		// 스킬 타이머 (스킬 지속시간)
 	float field = 1.0f;
-	float y = -380.0f;
+	float y = -370.0f;
 	cTimer* s_timer;
 	BOOL IsShow;
-	
+
+	cTimer* h_timer;
+	cTimer* h_SkillTimer;
+	BOOL h_bIsSkillOn;
+	BOOL h_bIsSkillKeyOn;
+	float h_field = 1.0f;
+	float Y = -370.0f;
+	BOOL h_IsShow;
+	cTimer* hs_timer;
+
 public:
 	cPlayer();
 	virtual ~cPlayer();

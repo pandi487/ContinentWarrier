@@ -10,11 +10,12 @@ cEnemy3::cEnemy3(Vec2 pos) :m_pos(pos)
 {
 	SetTag("Enemy3");
 	m_image = IMAGE->FindImage("Enemy3");
-	m_timer = new cTimer(1);
+	m_timer = new cTimer(3);
 	SetCollTag("OBB");
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
+	Damege = 1;
 }
 
 cEnemy3::~cEnemy3()
@@ -57,7 +58,9 @@ void cEnemy3::Collision(cObject* obj)
 {
 	if (obj->GetTag() == "Player")
 	{
-		obj->ObjDie();
+		cPlayer* m_Player = (cPlayer*)obj;
+		m_Player->HP -= Damege;
+
 	}
 	if (obj->GetTag() == "Enemy" || obj->GetTag() == "Enemy2" || obj->GetTag() == "Enemy3")
 	{
