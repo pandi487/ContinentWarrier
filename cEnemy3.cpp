@@ -6,6 +6,7 @@
 #include "cPlayerBullet.h"
 #include "cEffect.h"
 
+INT cEnemy3::Damege = 5;
 cEnemy3::cEnemy3(Vec2 pos) :m_pos(pos)
 {
 	SetTag("Enemy3");
@@ -15,7 +16,7 @@ cEnemy3::cEnemy3(Vec2 pos) :m_pos(pos)
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
-	Damege = 1;
+
 }
 
 cEnemy3::~cEnemy3()
@@ -35,8 +36,8 @@ void cEnemy3::Update()
 
 	if (m_timer->Update()) {
 
-		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x - 10, m_pos.y), 0.0f));
-		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x + 10, m_pos.y), 0.0f));
+		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x - 20, m_pos.y), 0.0f));
+		OBJ->AddObj(new cEnemyBullet(Vec2(m_pos.x + 20, m_pos.y), 0.0f));
 	}
 	if (HP <= 0) {
 
@@ -59,12 +60,16 @@ void cEnemy3::Collision(cObject* obj)
 	if (obj->GetTag() == "Player")
 	{
 		cPlayer* m_Player = (cPlayer*)obj;
+		//if (){
 		m_Player->HP -= Damege;
+			//cPlayer::H_y -= 5;
+			//}
 
 	}
 	if (obj->GetTag() == "Enemy" || obj->GetTag() == "Enemy2" || obj->GetTag() == "Enemy3")
 	{
 
 		obj->ObjDie();
+		ObjDie();
 	}
 }

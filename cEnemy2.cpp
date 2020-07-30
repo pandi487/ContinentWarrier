@@ -6,6 +6,8 @@
 #include "cPlayerBullet.h"
 #include "cEffect.h"
 
+INT cEnemy2::Damege = 5;
+
 cEnemy2::cEnemy2(Vec2 pos) :m_pos(pos)
 {
 	SetTag("Enemy2");
@@ -15,7 +17,7 @@ cEnemy2::cEnemy2(Vec2 pos) :m_pos(pos)
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
-	Damege = 1;
+
 }
 
 cEnemy2::~cEnemy2()
@@ -66,5 +68,6 @@ void cEnemy2::Collision(cObject* obj)
 	{
 
 		obj->ObjDie();
+		ObjDie();
 	}
 }

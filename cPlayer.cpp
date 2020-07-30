@@ -3,6 +3,10 @@
 #include "cPlayerBullet.h"
 #include "cScore.h"
 #include "cTimer.h"
+#include "cEnemy.h"
+#include "cEnemy2.h"
+#include "cEnemy3.h"
+
 
 INT cPlayer::HP = 100;
 cPlayer::cPlayer()
@@ -28,8 +32,13 @@ cPlayer::cPlayer()
 	hs_timer = new cTimer(3);
 	h_bIsSkillOn = FALSE;
 	h_bIsSkillKeyOn = TRUE;
+	H_field = 1.f;
+	H_y = -380.f;
 
-	
+	H_timer = new cTimer(0.1);
+	Hs_timer = new cTimer(3);
+
+
 }
 
 cPlayer::~cPlayer()
@@ -40,6 +49,7 @@ void cPlayer::Update()
 {
 	if (HP <= 0) {
 		SCENE->ChangeScene("Title");//game over로 교체
+		return;
 		
 	}
 	if (SCORE->Score >= 100)
@@ -71,6 +81,7 @@ void cPlayer::Update()
 	if (m_timer->Update()) {
 
 		OBJ->AddObj(new cPlayerBullet(m_pos, 0.0f));
+	
 	}
 
 		// 한번 z키를 눌렀을 시 스킬은 10초간 지속, 지속되는 도중에는 z키를 입력못하게 함
@@ -123,7 +134,7 @@ void cPlayer::Update()
 				if (h_SkillTimer->m_Start < 3) {//스킬 지속시간
 					if (h_timer->Update()) {
 						
-						HP += 50;
+						HP += 1;
 					}
 				}
 			}
@@ -132,20 +143,22 @@ void cPlayer::Update()
 				h_bIsSkillKeyOn = TRUE;		// 스킬 키 입력을 허용해진다. (키 입력이 가능해지니깐 위의 z키가 먹는다)
 			}
 		}
-		/*if (HP >= 100) {// HP 최대값
+		if (HP >= 100) {// HP 최대값
 			HP = 100;
-		}*/
-		printf("%d\n", HP);
+		}
+		printf("HP : %d\n", HP);
+	
+		
 	
 }
 	
 
 void cPlayer::Render()
 {
-	RENDER->Render(m_image, m_pos, Vec2(0.8, 0.8));
+	RENDER->Render(m_image, m_pos, Vec2(1.0, 1.0));
 
 
-	RENDER->Render(IMAGE->FindImage("SkillOn"), Vec2(745, -370), Vec2(1.0f, 1.0f));
+	RENDER->Render(IMAGE->FindImage("SkillOn"), Vec2(745, -380), Vec2(1.0f, 1.0f));
 	if (IsShow){
 	RENDER->Render(IMAGE->FindImage("SkillOff"), Vec2(745, y), Vec2(1.0f, field));
 	if (s_timer->Update()) {
@@ -153,16 +166,30 @@ void cPlayer::Render()
 		y -= 5.0f;
 	}
 	}
-
-	RENDER->Render(IMAGE->FindImage("HP"), Vec2(600, -370), Vec2(1.0f, 1.0f));
-	if (h_IsShow){
-	RENDER->Render(IMAGE->FindImage("SkillOff2"), Vec2(600, Y), Vec2(1.0f, h_field));
-	if (hs_timer->Update()) {
-		h_field -= 0.1f;//내려가는 스피드 0.1f = 
-		Y -= 5.0f; //스크롤 내려가는 크기
+	/// <summary>
+	/// HP스킬
+	/// </summary>
+	RENDER->Render(IMAGE->FindImage("HP"), Vec2(600, -380), Vec2(1.0f, 1.0f));
+	if (h_IsShow) {
+		RENDER->Render(IMAGE->FindImage("SkillOff2"), Vec2(600, Y), Vec2(1.0f, h_field));
+		if (hs_timer->Update()) {
+			h_field -= 0.1f;//내려가는 스피드 0.1f = 
+			Y -= 5.0f; //스크롤 내려가는 크기
+		}
 	}
-	}
+	/// <summary>
+	/// HP바 설정
+	/// </summary>
 
+	RENDER->Render(IMAGE->FindImage("HPbarOff"), Vec2(-730, -380), Vec2(1.0f, 1.0f));
+	RENDER->Render(IMAGE->FindImage("HPbarOn"), Vec2(-730, H_y), Vec2(1.0f, H_field));
+		if (Hs_timer->Update()) {
+			
+				//H_y -= 5.0f;
+				//H_field -= 0.1f;
+			
+		}
+	
 
 }
 
@@ -175,9 +202,18 @@ void cPlayer::UIRender()
 
 }
 
-
 void cPlayer::Collision(cObject* obj)
 {
 	//Enemy 랑 충돌 hp 빼기
+	if (obj->GetTag() == "Enemy") 
+	{
+		cEnemy* m_Enemy = (cEnemy*)obj;
 
+		H_y -= 5.0f;
+		H_field = (float)HP / 100.f;
+	
+		HP = H_y = H_field;
+		printf("체력바 : %d\n", H_field);
+	
+	}
 }

@@ -9,7 +9,8 @@ private:
 	int Num = 0;
 	cTexture * m_mouse;
 	Vec2 m_CreditBtnPos;
-	RECT _1, _2, _3, _4, _5,_6, _7;
+	Vec2 m_HowBtnPos;
+	RECT _1, _2, _3, _4, _5, _6, _7, _8;
 	enum Title
 	{
 		PlayOn,

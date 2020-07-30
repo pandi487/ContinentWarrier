@@ -6,17 +6,18 @@
 #include "cPlayerBullet.h"
 #include "cEffect.h"
 
+INT cEnemy::Damege = 5;
+
 cEnemy::cEnemy(Vec2 pos):m_pos(pos)
 {
 	SetTag("Enemy");
 	m_image = IMAGE->FindImage("Enemy");
-	m_timer = new cTimer(1);
+	m_timer = new cTimer(3);
 	
 	SetCollTag("OBB");
 	SetPos(m_pos);
 	rot = 0.0f;
 	HP = 10;
-	Damege = 1;
 
 }
 
@@ -69,5 +70,6 @@ void cEnemy::Collision(cObject* obj)
 	{
 
 		obj->ObjDie();
+		ObjDie();
 	}
 }

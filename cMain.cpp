@@ -70,6 +70,11 @@ void cMain::Init()
 
 	IMAGE->AddImage("SkillOff2", "./image/UI/skillColl2.png");
 	IMAGE->AddImage("HP", "./image/UI/HP.png");
+	IMAGE->AddImage("HPbarOn", "./image/HPbarOn.png");
+	IMAGE->AddImage("HPbarOff", "./image/HPbarOff.png");
+	IMAGE->AddImage("GameClear", "./image/GameClear.png");
+	IMAGE->AddImage("GameOver", "./image/GameOver.png");
+
 }
 
 void cMain::Render()

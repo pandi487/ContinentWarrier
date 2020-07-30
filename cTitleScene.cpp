@@ -83,7 +83,8 @@ void cTitleScene::Render()
 	{
 
 		RENDER->Render(m_Title[How], Vec2(0, 0), Vec2(1, 1));
-		RENDER->Render(m_Title[Button], Vec2(305, 285), Vec2(1, 1));
+		m_HowBtnPos = Vec2(220, 170);
+		RENDER->Render(m_Title[Button], m_HowBtnPos, Vec2(1, 1));
 
 	}
 	if (m_CreditOn == true)
@@ -131,14 +132,22 @@ void cTitleScene::Update()
 		long(m_CreditBtnPos.y - m_Title[Button]->info.Height / 2),
 		long(m_CreditBtnPos.x + m_Title[Button]->info.Width / 2),
 		long(m_CreditBtnPos.y + m_Title[Button]->info.Height / 2) };
+
+	_8 = {long(m_HowBtnPos.x - m_Title[Button]->info.Width / 2),
+		long(m_HowBtnPos.y - m_Title[Button]->info.Height / 2),
+		long(m_HowBtnPos.x + m_Title[Button]->info.Width / 2),
+		long(m_HowBtnPos.y + m_Title[Button]->info.Height / 2) };
 	RECT _mouse = { long(KEY->GetCurPos().x - m_mouse->info.Width / 2),long(KEY->GetCurPos().y - m_mouse->info.Height / 2),long(KEY->GetCurPos().x + m_mouse->info.Width / 2),long(KEY->GetCurPos().y + m_mouse->info.Height / 2) };
 	if (HowToOn == true)
 	{
-		if (IntersectRect(&rt,&_6,&_mouse))
+		Vec2 m_CurPos = Vec2(KEY->GetCurPos().x, KEY->GetCurPos().y + (WINSIZEY / 2) - 100);
+		//printf("Cur Pos = x : %f y : %f\n RECT = %d : %d : %d : %d\n", m_CurPos.x, m_CurPos.y, _7.left, _7.top, _7.right, _7.bottom);
+		if (m_CurPos.x<_7.right && m_CurPos.x>_7.left && m_CurPos.y < _7.bottom && m_CurPos.y > _7.top)
 		{
+		//	printf("DE");
 			if (KEY->KeyStay(VK_LBUTTON))
 			{
-			HowToOn = false;
+				HowToOn = false;
 
 			}
 		}
@@ -149,7 +158,7 @@ void cTitleScene::Update()
 		//printf("Cur Pos = x : %f y : %f\n RECT = %d : %d : %d : %d\n", m_CurPos.x, m_CurPos.y, _7.left, _7.top, _7.right, _7.bottom);
 		if (m_CurPos.x<_7.right && m_CurPos.x>_7.left&& m_CurPos.y < _7.bottom && m_CurPos.y > _7.top)
 		{
-			printf("HE");
+			//printf("HE");
 			if (KEY->KeyStay(VK_LBUTTON))
 			{
 			m_CreditOn = false;

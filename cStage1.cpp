@@ -61,17 +61,17 @@ void cStage1::Update()
 		
 		switch (rand() % 3) {
 		case 0:
-			OBJ->AddObj(new cEnemy(Vec2((RandomPosition() * (rand() % 800)), 500)));
+			OBJ->AddObj(new cEnemy(Vec2((RandomPosition() * (rand() % 800)), 580)));
 			break;
 
 		case 1:
 
-			OBJ->AddObj(new cEnemy2(Vec2((RandomPosition() * (rand() % 800)), 500)));
+			OBJ->AddObj(new cEnemy2(Vec2((RandomPosition() * (rand() % 800)), 580)));
 			//printf("x값의 범위 : %d\n", (RandomPosition() * (rand() % 800)));
 			break;
 
 		case 2:
-			OBJ->AddObj(new cEnemy3(Vec2((RandomPosition() * (rand() % 800)), 500)));
+			OBJ->AddObj(new cEnemy3(Vec2((RandomPosition() * (rand() % 800)), 580)));
 			break;
 		}
 	}
