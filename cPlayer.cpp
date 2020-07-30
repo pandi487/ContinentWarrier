@@ -48,15 +48,17 @@ cPlayer::~cPlayer()
 void cPlayer::Update()
 {
 	if (HP <= 0) {
-		SCENE->ChangeScene("Title");//game over로 교체
+		IMAGE->FindImage("GameOver");//game over로 교체
+		SCENE->ChangeScene("Title");
 		return;
 		
 	}
 	if (SCORE->Score >= 100)
 	{
-		SCENE->ChangeScene("Title");//game clear로 교체
+		SCENE->ChangeScene("Title");
+		IMAGE->FindImage("GameClear");//game clear로 교체
 	}
-	
+
 	m_CurTime = timeGetTime();
 	SetPos(m_pos);
 	SetRot(0);
@@ -147,7 +149,7 @@ void cPlayer::Update()
 			HP = 100;
 		}
 		printf("HP : %d\n", HP);
-	
+		printf("Score : %d\n", SCORE->Score);
 		
 	
 }
@@ -212,7 +214,7 @@ void cPlayer::Collision(cObject* obj)
 		H_y -= 5.0f;
 		H_field = (float)HP / 100.f;
 	
-		HP = H_y = H_field;
+		HP || H_y;
 		printf("체력바 : %d\n", H_field);
 	
 	}

@@ -23,6 +23,7 @@ void cMain::Init()
 	IMAGE->AddImage("Map","./image/Stage1/map.png");
 	RENDER->Campos(Vec2(0, 0));
 	SCENE->AddScene("Title", new cTitleScene);
+
 	IMAGE->AddImage("Player", "./image/Player.png");
 	SCENE->AddScene("Stage1", new cStage1);
 	IMAGE->AddImage("Title", "./image/Title/Title.png");
@@ -64,6 +65,8 @@ void cMain::Init()
 	IMAGE->AddImage("Effect5", "./image/Effect/Effect5.png");
 	IMAGE->AddImage("Effect6", "./image/Effect/Effect6.png");
 	IMAGE->AddImage("Effect7", "./image/Effect/Effect7.png");
+	IMAGE->AddImage("Effect8", "./image/Effect/Effect8.png");
+	IMAGE->AddImage("Effect9", "./image/Effect/Effect9.png");
 
 	IMAGE->AddImage("SkillOff", "./image/UI/skillColl.png");
 	IMAGE->AddImage("SkillOn", "./image/UI/skillUI.png");
@@ -73,6 +76,7 @@ void cMain::Init()
 	IMAGE->AddImage("HPbarOn", "./image/HPbarOn.png");
 	IMAGE->AddImage("HPbarOff", "./image/HPbarOff.png");
 	IMAGE->AddImage("GameClear", "./image/GameClear.png");
+
 	IMAGE->AddImage("GameOver", "./image/GameOver.png");
 
 }

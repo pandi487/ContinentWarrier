@@ -8,7 +8,7 @@ cEnemyBullet::cEnemyBullet(Vec2 pos, FLOAT theta)
 	SetTag("EnemyBullet");
 	m_image = IMAGE->FindImage("EnemyBullet");
 	SetPos(pos);
-	Damege = 1;
+	Damege = 5;
 	m_pos = pos;
 	this->theta = theta;
 

@@ -4,7 +4,7 @@ class cTimer;
 class cEffect : public cObject
 {
 	cTimer* Frame;
-	cTexture* m_image[7];
+	cTexture* m_image[9];
 	Vec2 m_pos;
 	int  i = 0;
 public:

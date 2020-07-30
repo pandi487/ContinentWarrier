@@ -60,10 +60,8 @@ void cEnemy3::Collision(cObject* obj)
 	if (obj->GetTag() == "Player")
 	{
 		cPlayer* m_Player = (cPlayer*)obj;
-		//if (){
 		m_Player->HP -= Damege;
-			//cPlayer::H_y -= 5;
-			//}
+			
 
 	}
 	if (obj->GetTag() == "Enemy" || obj->GetTag() == "Enemy2" || obj->GetTag() == "Enemy3")
